@@ -1,10 +1,16 @@
 # Code Reference for R
+# Install packages
+We can install packages in R via the following command
+```R
+install.packages('package')
+```
 ## Tidyverse
 We load the R-Package for "tidyverse" as follows
 ```R
 library(tidyverse)
 ```
 ### Tibble
+A tibble, or tbl_df, is a data frame container type which is considered as a modern reimagining of the data.frame. 
 We can create a tibble by using the following command
 ```R
 df <- tibble(id = c(1, 2, 3),
@@ -26,6 +32,7 @@ In order to create new variables, we can use mutate
 ```R
 df_age_double <- df %>%
   mutate(age_double = 2 * age)
+
 df_add_add_flag <- df %>%
   mutate(flag_age_over_30 = ifelse(age > 30, "yes", "no"),
          flag_age_less_50 = case_when(age < 50 ~ TRUE,
@@ -46,6 +53,7 @@ Filter is used to filter rows based on given conditions
 ```R
 df_age_filter_30 <- df %>%
   filter(age >= 30)
+
 df_name_filter <- df %>%
   filter(name %in% c("B", "A"))  
 ```
